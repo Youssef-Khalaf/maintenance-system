@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { RegisterUserDto } from "@/utils/dtos";
 import { registerSchema } from "@/utils/validadationSchemas";
 import { NextRequest, NextResponse } from "next/server";
 import Prisma from "@/utils/db";
 import prisma from "@/utils/db";
-import { date } from "zod";
+import bcrypt from "bcryptjs";
 // NextRequest, NextResponse
 /**
  * @method
@@ -42,11 +41,12 @@ export async function POST(request: NextRequest) {
         );
       }
     }
+    const hashPasswoed = await bcrypt.hash(body.password, 10);
     const newUser = (await prisma.employee.create({
       data: {
         id: body.id,
         name: body.name,
-        password: body.password,
+        password: hashPasswoed,
         phone: body.phone,
         isActive: body.isActive,
         departmentId: body.departmentId,
