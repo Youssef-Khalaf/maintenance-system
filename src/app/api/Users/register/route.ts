@@ -53,8 +53,18 @@ export async function POST(request: NextRequest) {
         jobTitleId: body.jobTitleId,
         managerID: body.managerID,
       },
+      select: {
+        id: true,
+        name: true,
+        phone: true,
+        departmentId: true,
+        jobTitleId: true,
+        managerID: true,
+      },
     })) as RegisterUserDto;
-    return NextResponse.json(newUser, { status: 201 });
+
+    const token = null; // @Todo -> JWT token
+    return NextResponse.json({ ...newUser, token }, { status: 201 });
   } catch (error) {
     if (error instanceof Error)
       return NextResponse.json({ message: error.message }, { status: 500 });

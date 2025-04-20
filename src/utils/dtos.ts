@@ -8,3 +8,7 @@ export interface RegisterUserDto {
   managerID: string;
   isActive: boolean;
 }
+export interface LoginUserDto {
+  id: string;
+  password: string;
+}

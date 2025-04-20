@@ -6,14 +6,17 @@ export const registerSchema = z.object({
       invalid_type_error: "id should be text",
     })
     .max(14, { message: "id  should be equal 14 characters" })
-    .min(14, { message: "id  should be equal 14 characters" }),
+    .min(14, { message: "id  should be equal 14 characters" })
+    .regex(/^[0-9]+$/, {
+      message: "The ID must contain only numbers",
+    }),
   name: z
     .string({
       required_error: "name is required",
       invalid_type_error: "name should be text",
     })
     .min(2, { message: "name should be at least 2 characters" }),
-  password: z.string().min(6),
+  password: z.string({ required_error: "password is required" }).min(6),
   phone: z
     .string({
       required_error: "phone is required",
@@ -41,4 +44,17 @@ export const registerSchema = z.object({
     .max(14, { message: "managerID  should be equal 14 characters" })
     .min(14, { message: "managerID  should be equal 14 characters" })
     .optional(),
+});
+export const loginSchema = z.object({
+  id: z
+    .string({
+      required_error: "id is required",
+      invalid_type_error: "id should be text",
+    })
+    .max(14, { message: "id  should be equal 14 characters" })
+    .min(14, { message: "id  should be equal 14 characters" })
+    .regex(/^[0-9]+$/, {
+      message: "The ID must contain only numbers",
+    }),
+  password: z.string({ required_error: "password is required" }).min(6),
 });
