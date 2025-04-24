@@ -1,9 +1,11 @@
-import { RegisterUserDto } from "@/utils/dtos";
+import { RegisterUserDto, JWTPayload } from "@/utils/dtos";
+import { generateToken } from "@/utils/generateToken";
 import { registerSchema } from "@/utils/validadationSchemas";
 import { NextRequest, NextResponse } from "next/server";
 import Prisma from "@/utils/db";
 import prisma from "@/utils/db";
 import bcrypt from "bcryptjs";
+import { serialize } from "cookie";
 // NextRequest, NextResponse
 /**
  * @method
@@ -63,8 +65,33 @@ export async function POST(request: NextRequest) {
       },
     })) as RegisterUserDto;
 
-    const token = null; // @Todo -> JWT token
-    return NextResponse.json({ ...newUser, token }, { status: 201 });
+    const JWTPayload = {
+      id: newUser.id,
+      name: newUser.name,
+      phone: newUser.phone,
+      isActive: newUser.isActive,
+      departmentId: newUser.departmentId,
+      jobTitleId: newUser.jobTitleId,
+      managerID: newUser.managerID,
+    } as JWTPayload;
+    const token = generateToken(JWTPayload);
+
+    if (body.fromMobile) {
+      return NextResponse.json({ ...newUser, token }, { status: 201 });
+    }
+
+    const cookie = serialize("JWTToken", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 10,
+    });
+
+    return NextResponse.json(newUser, {
+      status: 201,
+      headers: { "Set-Cookie": cookie },
+    });
   } catch (error) {
     if (error instanceof Error)
       return NextResponse.json({ message: error.message }, { status: 500 });
