@@ -10,16 +10,13 @@ import { JWTPayload } from "@/utils/dtos";
  *  @access private ( only users himself can delete his account )
  */
 
-// interface props {
-//   params: { id: string };
-// }
+interface props {
+  params: { id: string };
+}
 
-export async function DELETE(
-  request: NextRequest,
-  context: { params: { id: string } }
-) {
+export async function DELETE(request: NextRequest, props: props) {
   try {
-    const { id } = await context.params;
+    const { id } = await props.params;
     const employee = await prisma.employee.findUnique({
       where: { id: id },
     });
