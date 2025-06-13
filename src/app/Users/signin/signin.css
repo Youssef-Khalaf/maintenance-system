@@ -1,0 +1,164 @@
+.bgcolor {
+  background-image: linear-gradient(#0183e9, #014c89);
+  height: 100vh;
+  padding: 0% 10%;
+}
+@media (max-width: 575.98px) {
+  .bgcolor {
+    padding: 0 10px;
+  }
+}
+/* .login {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 0.75 rem;
+  margin: 3rem;
+  border-radius: 0.75rem;
+} */
+.loginForm {
+  max-width: 1100;
+  background-color: white;
+  padding: 10px;
+  border-radius: 13px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  overflow: hidden;
+  box-shadow: 0px 0px 59px 0 #0000008a;
+}
+.loginForm .text {
+  width: 50%;
+  margin: 100px 15%;
+  color: white;
+}
+.text div:first-of-type {
+  background: #1161a1;
+  width: 700px;
+  height: 700px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(-24%, -30%);
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: inset 0 0 100px #00000069;
+}
+
+.text div.center {
+  background: #1161a1;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 10%;
+  right: 50%;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: inset 0 0 47px #0000008a;
+}
+.text div:last-of-type {
+  background: #1161a1;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  bottom: -24%;
+  left: -7%;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: inset 0 0 137px #0000008a;
+}
+@media (max-width: 991.98px) {
+  .loginForm {
+    max-width: 1100;
+    background-color: white;
+    padding: 10px;
+    border-radius: 13px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+    overflow: hidden;
+    box-shadow: 0px 0px 59px 0 #0000008a;
+  }
+  .loginForm .text {
+    display: none;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .text div:first-of-type {
+    background: #1161a1;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-26%, -30%);
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: inset 0 0 100px #00000069;
+  }
+}
+.loginForm .text h4 {
+  font-weight: bold;
+  font-size: 45px;
+}
+.loginForm .text p:first-of-type {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 7px 0px;
+}
+.loginForm .text p:last-of-type {
+  font-size: 11px;
+}
+.loginForm .signinForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.signinForm h4 {
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px;
+}
+.signinForm p {
+  font-size: 15px;
+  padding-left: 10px;
+}
+.signinForm > div {
+  background: #1161a1;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 0%;
+  right: 0;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: inset 0 0 34px #0000008a;
+  transform: translate(40%, 54%);
+}
+.loginForm input {
+  flex: 1;
+}
+
+.signinForm > p:last-of-type {
+  display: block;
+  margin: 30px 1px;
+}
+.signinForm > p .Link {
+  color: #03457a;
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .loginForm {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}
+@media (max-width: 576px) {
+  .loginForm .signinForm {
+    width: 100%;
+    padding: 10px;
+  }
+}

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+/* 
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +23,54 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.contaner {
+  margin: 0 auto;
+  padding: 15px;
+}
+/* End Glopal value */
+/* start media to response */
+
+/*  Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .contaner {
+    max-width: 560px;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .contaner {
+    min-width: 560px;
+    max-width: 750px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .contaner {
+    min-width: 750px;
+    max-width: 980px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .contaner {
+    min-width: 980px;
+
+    max-width: 1180px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .contaner {
+    max-width: 1180px;
+  }
 }

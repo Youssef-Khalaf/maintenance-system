@@ -1,0 +1,44 @@
+form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 15px;
+}
+.formfeild {
+  display: flex;
+  background: #eee;
+  padding: 13px;
+  border-radius: 10px;
+}
+.formfeild svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.formfeild input {
+  font-size: 15px;
+}
+.formfeild button {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #014c89;
+}
+.forgotpassword {
+  color: #014c89;
+
+  text-align: end;
+  width: 95%;
+}
+.bntsignin {
+  width: 100%;
+  background: #03457a;
+  padding: 10px;
+  font-size: 25px;
+  color: white;
+  border-radius: 12px;
+  margin: 10px 0px;
+}
+@media (max-width: 575.98px) {
+  .formfeild button {
+    font-size: 15px;
+  }
+}
